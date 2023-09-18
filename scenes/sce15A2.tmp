@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh1ediqm8vnlv"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_d424n"]
+[ext_resource type="Shape2D" uid="uid://dxm4slfrh5q6e" path="res://shapes/capsule.tres" id="2_xk4hp"]
+[ext_resource type="Texture2D" uid="uid://n6jk2bn7rkx5" path="res://textures/test_char.png" id="3_74wqb"]
+[ext_resource type="Shape2D" uid="uid://dn1x74ka8owlw" path="res://shapes/rectangle_shape.tres" id="4_oe12c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(158, 105)
+script = ExtResource("1_d424n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = ExtResource("2_xk4hp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.3, 0.4)
+texture = ExtResource("3_74wqb")
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(603, 174)
+scale = Vector2(50, 2)
+
+[node name="Area2D" type="Area2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Area2D"]
+shape = ExtResource("4_oe12c")

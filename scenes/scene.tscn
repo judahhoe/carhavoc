@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh1ediqm8vnlv"]
+
+[ext_resource type="Texture2D" uid="uid://c7y6piy3ylv8s" path="res://textures/track_test.jpg" id="1_cj3l4"]
+[ext_resource type="Script" path="res://Player.gd" id="1_d424n"]
+[ext_resource type="Shape2D" uid="uid://dxm4slfrh5q6e" path="res://shapes/capsule.tres" id="2_xk4hp"]
+[ext_resource type="Texture2D" uid="uid://bhxhvm552kxjq" path="res://textures/test_car.png" id="3_f7w4k"]
+[ext_resource type="Shape2D" uid="uid://dn1x74ka8owlw" path="res://shapes/rectangle_shape.tres" id="4_oe12c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Backgroung" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_cj3l4")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(158, 105)
+script = ExtResource("1_d424n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_f7w4k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+rotation = 1.5708
+scale = Vector2(1.5, 2)
+shape = ExtResource("2_xk4hp")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(603, 174)
+scale = Vector2(50, 2)
+
+[node name="Area2D" type="Area2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Area2D"]
+shape = ExtResource("4_oe12c")
