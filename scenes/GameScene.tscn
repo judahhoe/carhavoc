@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh1ediqm8vnlv"]
+
+[ext_resource type="Script" path="res://scenes/GameScene.gd" id="1_tpfq2"]
+[ext_resource type="Texture2D" uid="uid://c7y6piy3ylv8s" path="res://textures/track_test.jpg" id="2_ao2b7"]
+[ext_resource type="PackedScene" uid="uid://bk3hn21brt35w" path="res://scenes/enemy.tscn" id="3_38c6x"]
+[ext_resource type="PackedScene" uid="uid://cl2wqlumdgvsi" path="res://scenes/player.tscn" id="4_hoa7o"]
+[ext_resource type="Shape2D" uid="uid://dn1x74ka8owlw" path="res://shapes/rectangle_shape.tres" id="5_gdt1s"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_tpfq2")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_ao2b7")
+
+[node name="Enemy" parent="." instance=ExtResource("3_38c6x")]
+
+[node name="Player" parent="." instance=ExtResource("4_hoa7o")]
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(603, 174)
+scale = Vector2(50, 2)
+
+[node name="Area2D" type="Area2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Area2D"]
+shape = ExtResource("5_gdt1s")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
