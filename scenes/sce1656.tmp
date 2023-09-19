@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh1ediqm8vnlv"]
+
+[ext_resource type="Texture2D" uid="uid://c7y6piy3ylv8s" path="res://textures/track_test.jpg" id="1_cj3l4"]
+[ext_resource type="Shape2D" uid="uid://dn1x74ka8owlw" path="res://shapes/rectangle_shape.tres" id="4_oe12c"]
+[ext_resource type="PackedScene" uid="uid://cl2wqlumdgvsi" path="res://scenes/player.tscn" id="5_w1lok"]
+[ext_resource type="Shape2D" uid="uid://64qi2adrrb37" path="res://shapes/character_shape_collider.tres" id="6_438ut"]
+[ext_resource type="Script" path="res://scenes/Enemy.gd" id="6_vogv3"]
+[ext_resource type="Texture2D" uid="uid://bkqi7eeh561rr" path="res://textures/test_enemy.png" id="7_2caks"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_cj3l4")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("6_vogv3")
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+collision_layer = 2
+collision_mask = 13
+monitorable = false
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+scale = Vector2(20, 20)
+shape = ExtResource("6_438ut")
+debug_color = Color(0.784314, 0.184314, 0, 0.627451)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+scale = Vector2(0.8, 0.8)
+shape = ExtResource("6_438ut")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(8, -2)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_2caks")
+
+[node name="Player" parent="." instance=ExtResource("5_w1lok")]
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(603, 174)
+scale = Vector2(50, 2)
+
+[node name="Area2D" type="Area2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Area2D"]
+shape = ExtResource("4_oe12c")
+
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_exited"]
