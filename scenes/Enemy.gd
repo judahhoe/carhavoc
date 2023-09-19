@@ -5,6 +5,7 @@ var blood_particles = preload("res://scenes/blood_particles.tscn").instantiate()
 var target = null
 const speed = 100
 
+
 func _physics_process(delta):
 	if target:
 		var velocity = global_position.direction_to(target.global_position)
