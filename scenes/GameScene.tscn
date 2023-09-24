@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dh1ediqm8vnlv"]
 
 [ext_resource type="Script" path="res://scenes/GameScene.gd" id="1_tpfq2"]
-[ext_resource type="Texture2D" uid="uid://c7y6piy3ylv8s" path="res://textures/track_test.jpg" id="2_ao2b7"]
+[ext_resource type="PackedScene" uid="uid://ct33lu2e073am" path="res://scenes/background.tscn" id="2_vkhfr"]
 [ext_resource type="PackedScene" uid="uid://bk3hn21brt35w" path="res://scenes/enemy.tscn" id="3_38c6x"]
 [ext_resource type="PackedScene" uid="uid://cl2wqlumdgvsi" path="res://scenes/player.tscn" id="4_hoa7o"]
 [ext_resource type="Shape2D" uid="uid://dn1x74ka8owlw" path="res://shapes/rectangle_shape.tres" id="5_gdt1s"]
@@ -9,9 +9,8 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_tpfq2")
 
-[node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_ao2b7")
+[node name="Background" parent="." instance=ExtResource("2_vkhfr")]
+scale = Vector2(6, 6)
 
 [node name="Enemy" parent="." instance=ExtResource("3_38c6x")]
 
@@ -27,6 +26,7 @@ scale = Vector2(50, 2)
 shape = ExtResource("5_gdt1s")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

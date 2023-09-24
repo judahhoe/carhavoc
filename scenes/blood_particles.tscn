@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1wnmbsqhaflw"]
+[gd_scene load_steps=4 format=3 uid="uid://d1wnmbsqhaflw"]
 
 [ext_resource type="Texture2D" uid="uid://c86eg4l321fqy" path="res://textures/splatter_square.png" id="1_5nspx"]
 [ext_resource type="Script" path="res://scenes/blood_particles.gd" id="2_b35gu"]
 
+[sub_resource type="Gradient" id="Gradient_5fh8j"]
+offsets = PackedFloat32Array(0.00662252, 0.86755, 1)
+colors = PackedColorArray(0.358988, 6.73831e-07, 9.62615e-08, 0.709804, 0.152197, 1.89891e-07, 1.8049e-08, 0.801569, 0.121569, 0, 0, 0)
+
 [node name="BloodParticles" type="CPUParticles2D"]
+z_index = 4
 emitting = false
-amount = 100
-lifetime = 4.0
+amount = 200
+lifetime = 20.0
 one_shot = true
 explosiveness = 1.0
+randomness = 1.0
 texture = ExtResource("1_5nspx")
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 300.0
+initial_velocity_min = 200.0
 initial_velocity_max = 450.0
 linear_accel_min = -500.0
 linear_accel_max = -300.0
@@ -21,11 +27,11 @@ damping_max = 100.0
 angle_max = 90.0
 scale_amount_min = 0.05
 scale_amount_max = 0.2
-color = Color(0.541176, 0, 0, 0.301961)
+color_ramp = SubResource("Gradient_5fh8j")
 script = ExtResource("2_b35gu")
 
 [node name="DeleteTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 21.0
 one_shot = true
 autostart = true
 
