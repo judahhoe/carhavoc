@@ -15,6 +15,10 @@ run/main_scene="res://scenes/GameScene.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerGlobalVars="*res://player_global_vars.gd"
+
 [input]
 
 Left={

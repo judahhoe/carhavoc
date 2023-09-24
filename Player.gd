@@ -7,14 +7,13 @@ var steer_angle
 var engine_power = 1200  # Forward acceleration force.
 
 var acceleration = Vector2.ZERO
-var friction = -0.6
+var friction = -0.8
 var drag = -0.0015
 var braking = -450
-var max_speed_reverse = 250
+var max_speed_reverse = 500
 var slip_speed = 100  # Speed where traction is reduced
 var traction_fast = 0.06  # High-speed traction
 var traction_slow = 0.3  # Low-speed traction
-
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -22,6 +21,7 @@ func _physics_process(delta):
 	apply_friction()
 	calculate_steering(delta)
 	velocity += acceleration * delta
+	PlayerGlobalVars.PlayerSpeed = velocity.length()
 	move_and_slide()
 
 func apply_friction():
