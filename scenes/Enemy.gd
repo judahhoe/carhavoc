@@ -5,7 +5,7 @@ class_name enemy_class
 var blood_particles = preload("res://scenes/blood_particles.tscn").instantiate()
 
 var target = null
-const speed = 100
+const speed = 50
 var player = preload("res://scenes/player.tscn").instantiate()
 
 func _physics_process(delta):

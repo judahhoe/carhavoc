@@ -1,0 +1,8 @@
+res://shapes/capsule.tres::714c1525dec3b69868e3cbe6fcf4c80c::1695197814::res://.godot/exported/133200997/export-86aa6fb844bb7be63dfeeeaa3e47a37e-capsule.res
+res://shapes/character_shape_collider.tres::d3bc59aa6e99071b99410ea553bdbb07::1695558883::res://.godot/exported/133200997/export-3debd03128b4a0889aaeb24c28c3c2b5-character_shape_collider.res
+res://shapes/rectangle_shape.tres::848deed1efa65de19dd7504a2111d1d1::1694802160::res://.godot/exported/133200997/export-857d145bccb0a7e8f4da292b0016da84-rectangle_shape.res
+res://scenes/blood_particles.tscn::7a24b32f3dbfa9c7849d31136ce0ae99::1695559347::res://.godot/exported/133200997/export-9cdc63a70dedde1f91406507bc2660d5-blood_particles.scn
+res://scenes/player.tscn::1f3617f86b5e20e802526972c0f0e88e::1695559347::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
+res://scenes/enemy.tscn::b1b33d75dffe04f5a017d369e9a896ff::1695559347::res://.godot/exported/133200997/export-a930820ec0ab16db6719aff4daa500f9-enemy.scn
+res://scenes/GameScene.tscn::60313c1b44455513204c3e9181968b6d::1695559347::res://.godot/exported/133200997/export-15024b5764635ac5d5eac182fd173676-GameScene.scn
+res://scenes/background.tscn::e4cdf2c8a9e2e093afa016c1d1315eac::1695559347::res://.godot/exported/133200997/export-f1e46807209045e58980fb2be1ec694d-background.scn

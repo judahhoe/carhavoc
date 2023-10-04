@@ -1,0 +1,11 @@
+res://scenes/GameScene.tscn
+res://scenes/player.tscn
+res://scenes/blood_particles.tscn
+res://scenes/enemy.tscn
+res://scenes/background.tscn
+res://Player.gd
+res://scenes/Enemy.gd
+res://player_global_vars.gd
+res://shapes/character_shape_collider.tres
+res://scenes/GameScene.gd
+res://scenes/wall.tscn

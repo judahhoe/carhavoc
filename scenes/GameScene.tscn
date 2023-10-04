@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ct33lu2e073am" path="res://scenes/background.tscn" id="2_vkhfr"]
 [ext_resource type="PackedScene" uid="uid://bk3hn21brt35w" path="res://scenes/enemy.tscn" id="3_38c6x"]
 [ext_resource type="PackedScene" uid="uid://cl2wqlumdgvsi" path="res://scenes/player.tscn" id="4_hoa7o"]
-[ext_resource type="Shape2D" uid="uid://dn1x74ka8owlw" path="res://shapes/rectangle_shape.tres" id="5_gdt1s"]
+[ext_resource type="PackedScene" uid="uid://bj13ynxxksyge" path="res://scenes/wall.tscn" id="5_3njee"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_tpfq2")
@@ -16,17 +16,24 @@ scale = Vector2(6, 6)
 
 [node name="Player" parent="." instance=ExtResource("4_hoa7o")]
 
-[node name="Wall" type="Node2D" parent="."]
-position = Vector2(603, 174)
-scale = Vector2(50, 2)
+[node name="Wall" parent="." instance=ExtResource("5_3njee")]
+position = Vector2(10, 432)
+scale = Vector2(4, 4)
 
-[node name="Area2D" type="Area2D" parent="Wall"]
+[node name="Wall2" parent="." instance=ExtResource("5_3njee")]
+position = Vector2(90, 432)
+scale = Vector2(4, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Area2D"]
-shape = ExtResource("5_gdt1s")
+[node name="Wall3" parent="." instance=ExtResource("5_3njee")]
+position = Vector2(170, 432)
+scale = Vector2(4, 4)
+
+[node name="Wall4" parent="." instance=ExtResource("5_3njee")]
+position = Vector2(250, 432)
+scale = Vector2(4, 4)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.8
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
